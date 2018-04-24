@@ -1,0 +1,32 @@
+function bissec(a,b,Niter,tol)
+  disp("")
+  disp ("Output for the Bisection method")
+  disp("")
+  disp ("           n           a           b           x         f(x)")
+  fa=f(a);
+  for i=1:Niter
+    fb=f(b);
+    x=(b+a)/2;
+    fx=f(x);
+
+    disp ([i, a, b, x, fx]);
+    if (fx==0 |(b-a)/2<tol)
+      disp("")
+      disp ("The method completed successfully!")
+      disp("")
+      return;
+    else
+      if (fa*fx>0)
+        a=x;
+        fa=fx;
+      else
+        b=x;
+      endif
+    endif
+  endfor
+  disp("")
+  disp ("The method failed after (Niter)")
+  disp (Niter)
+  disp ("iterations")
+  disp("")
+endfunction
